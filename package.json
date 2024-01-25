@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "dompurify": "^3.0.8",
+    "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "express-rate-limit": "^7.1.5",
     "jsdom": "^24.0.0",
@@ -22,7 +23,8 @@
     "react-dom": "^18",
     "serverless": "^3.38.0",
     "serverless-http": "^3.2.0",
-    "serverless-offline": "^13.3.3"
+    "serverless-offline": "^13.3.3",
+    "socket.io": "^4.7.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
