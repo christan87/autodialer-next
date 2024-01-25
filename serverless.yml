@@ -1,12 +1,25 @@
+# the name of your Serverless service.
 service: my-service
 
+# This section specifies the cloud provider 
+# (AWS in this case) and the runtime environment (Node.js 14.x).
 provider:
   name: aws
   runtime: nodejs14.x
 
+# This section lists the plugins used in your Serverless service. 
+# Here, serverless-offline is used, which allows you to emulate 
+# AWS Lambda and API Gateway locally when developing your Serverless 
+# service.
 plugins:
   - serverless-offline
 
+# This section defines your Serverless functions. In this case, there's
+# a single function named app. The handler property points to the file 
+# that exports your Lambda function handler. The events property defines 
+# the events that will trigger this function. Here, any HTTP request 
+# (of any method) to the root path (/) or any subpath (/{proxy+}) will 
+# trigger this function.
 functions:
   app:
     handler: ./server/handler.server
@@ -14,6 +27,9 @@ functions:
       - http: ANY /
       - http: 'ANY /{proxy+}'
 
+# This section is used for custom configuration. Here, it's configuring 
+# the serverless-offline plugin to run the local server on port 4000 and 
+# to not use any prefix for the routes.
 custom:
   serverless-offline:
     httpPort: 4000
