@@ -13,6 +13,8 @@ const nextConfig = {
   // This is useful for exposing environment variables to your client-side code.
   env: {
     DB_CONNECTION_STRING: process.env.DB_CONNECTION_STRING,
+    GITHUB_ID: process.env.GITHUB_ID,
+    GITHUB_SECRET: process.env.GITHUB_SECRET,
   }
 }
 

@@ -3,7 +3,8 @@ require('dotenv').config();
 
 // Import dependencies
 const express = require('express');
-const http = require('http');const socketIo = require('socket.io');
+const http = require('http');
+const socketIo = require('socket.io');
 const mongoose = require('mongoose');
 const app = express();
 const server = http.createServer(app);
@@ -12,8 +13,8 @@ const mongoConnectionString = process.env.DB_CONNECTION_STRING;
 
 // Connect to MongoDB using the connection string and save connection as db to be exported so it can be closed from outside
 const db = mongoose.connect(`${mongoConnectionString}`, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to MongoDB')) // Log a message on successful connection
-  .catch(err => console.error('Could not connect to MongoDB...', err)); // Log an error message on connection failure
+  .then(() => console.log('Connected to MongoDB', db.connect)) // Log a message on successful connection
+  .catch(err => console.error('Could not connect to MongoDB...', err, db.connect)); // Log an error message on connection failure
 
 // Listen for a 'connection' event on the socket.io instance
 io.on('connection', (socket) => {
