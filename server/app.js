@@ -10,8 +10,8 @@ const server = http.createServer(app);
 const io = socketIo(server);
 const mongoConnectionString = process.env.DB_CONNECTION_STRING;
 
-// Connect to MongoDB using the connection string
-mongoose.connect(`${mongoConnectionString}`, { useNewUrlParser: true, useUnifiedTopology: true })
+// Connect to MongoDB using the connection string and save connection as db to be exported so it can be closed from outside
+const db = mongoose.connect(`${mongoConnectionString}`, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB')) // Log a message on successful connection
   .catch(err => console.error('Could not connect to MongoDB...', err)); // Log an error message on connection failure
 
@@ -33,4 +33,4 @@ app.get('/api/data', (req, res) => {
 });
 
 // Export the Express application
-module.exports = app;
+module.exports = { app, db };
