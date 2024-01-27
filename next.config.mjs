@@ -15,6 +15,8 @@ const nextConfig = {
     DB_CONNECTION_STRING: process.env.DB_CONNECTION_STRING,
     GITHUB_ID: process.env.GITHUB_ID,
     GITHUB_SECRET: process.env.GITHUB_SECRET,
+    JWT_SECRET: process.env.JWT_SECRET,
+    JWT_SIGNING_PRIVATE_KEY: process.env.JWT_SIGNING_PRIVATE_KEY,
   }
 }
 
