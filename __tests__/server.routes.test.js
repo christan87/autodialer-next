@@ -46,3 +46,30 @@ test('GET /csrf-token', async () => {
   // This is important because CSRF tokens are expected to be string values.
   expect(typeof response.body.csrfToken).toBe('string');
 });
+
+// Add the rate limiting test
+describe('Rate limiting', () => {
+  /**
+   * Test case for rate limiting.
+   * This test case sends 101 GET requests to the '/api/data' endpoint.
+   * Since the rate limit is set to 100 requests per 15 minutes, the 101st request should exceed the rate limit.
+   */
+  it('should return 429 status after exceeding rate limit', async () => {
+    // Send 101 GET requests to the '/api/data' endpoint.
+    for (let i = 0; i < 101; i++) {
+      await request(app).get('/api/data');
+    }
+
+    // Send another GET request to the '/api/data' endpoint.
+    // This is the 101st request, so it should exceed the rate limit.
+    const response = await request(app).get('/api/data');
+
+    // Check if the response status code is 429.
+    // 429 is the status code for 'Too Many Requests'.
+    expect(response.status).toBe(429);
+
+    // Check if the response text is 'Too many requests, please try again later.'.
+    // This is the message we set to be returned when the rate limit is exceeded.
+    expect(response.text).toBe('Too many requests, please try again later.');
+  });
+});
