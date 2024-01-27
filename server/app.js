@@ -6,10 +6,19 @@ const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
 const mongoose = require('mongoose');
+const csurf = require('csurf');
+const cookieParser = require('cookie-parser');
+
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
 const mongoConnectionString = process.env.DB_CONNECTION_STRING;
+
+// Use cookie-parser middleware
+app.use(cookieParser());
+
+// Use csurf middleware
+app.use(csurf({ cookie: true }));
 
 // Connect to MongoDB using the connection string and save connection as db to be exported so it can be closed from outside
 const db = mongoose.connect(`${mongoConnectionString}`, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -31,6 +40,11 @@ app.get('/api/data', (req, res) => {
   // Access your database here
   // Send a response
   res.json({ message: 'Hello from the server!' }); // Send a JSON response with a message
+});
+
+// Define a route handler for GET requests to 'csrf-token'
+app.get('/csrf-token', (req, res) => {
+  res.json({ csrfToken: req.csrfToken() });
 });
 
 // Export the Express application
