@@ -16,6 +16,7 @@ const server = http.createServer(app);
 const io = socketIo(server);
 const mongoConnectionString = process.env.DB_CONNECTION_STRING;
 
+
 // Define rate limiter
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -43,8 +44,13 @@ io.on('connection', (socket) => {
 
   // Listen for a 'disconnect' event on the socket
   socket.on('disconnect', () => {
-    logger.info('User disconnected'); // Log a message when a user disconnects
+  logger.info('User disconnected'); // Log a message when a user disconnects
   });
+});
+
+app.get('/', (req, res) => {
+  console.log('=====================>Received request at /');
+  // Rest of your route handler code...
 });
 
 // Define a route handler for GET requests to '/api/data'
