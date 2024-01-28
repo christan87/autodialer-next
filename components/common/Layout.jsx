@@ -1,5 +1,6 @@
 // Import the React library
 import React from 'react';
+import Head from 'next/head';
 
 /**
  * Layout component that wraps around the main content of the page.
@@ -16,9 +17,9 @@ import React from 'react';
 const Layout = ({ children }) => {
     return(
         <div className='layout'>
-            <head>
+            <Head>
                 <title>James App</title>
-            </head>
+            </Head>
             {children}
         </div>
     )

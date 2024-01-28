@@ -19,6 +19,7 @@ const nextConfig = {
     GITHUB_SECRET: process.env.GITHUB_SECRET,
     JWT_SECRET: process.env.JWT_SECRET,
     JWT_SIGNING_PRIVATE_KEY: process.env.JWT_SIGNING_PRIVATE_KEY,
+    DEV_SERVER_URL: process.env.DEV_SERVER_URL,
   },
   // This function is used to set custom HTTP headers for your Next.js application.
   async headers() {
@@ -52,7 +53,7 @@ const nextConfig = {
 
               // The 'connectSrc' directive restricts which URLs can be loaded using script interfaces.
               // Here, it's set to only allow connections from the same origin.
-              connectSrc: ["'self'"],
+              connectSrc: ["'self'", "http://localhost:4000"],
 
               // The 'fontSrc' directive restricts which URLs can be loaded for font resources.
               // Here, it's set to allow fonts from the same origin and fonts from 'https://fonts.gstatic.com'.

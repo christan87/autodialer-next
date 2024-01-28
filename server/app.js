@@ -3,6 +3,7 @@ require('dotenv').config();
 
 // Import dependencies
 const express = require('express');
+const cors = require('cors');
 const http = require('http');
 const socketIo = require('socket.io');
 const mongoose = require('mongoose');
@@ -32,6 +33,9 @@ app.use(csurf({ cookie: true }));
 
 // Apply rate limiting to /api/ routes
 app.use('/api/', apiLimiter);
+
+// Use cors middleware
+app.use(cors());
 
 // Connect to MongoDB using the connection string and save connection as db to be exported so it can be closed from outside
 mongoose.connect(`${mongoConnectionString}`, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -63,6 +67,7 @@ app.get('/api/data', (req, res) => {
 
 // Define a route handler for GET requests to 'csrf-token'
 app.get('/csrf-token', (req, res) => {
+  console.log('=====================>Received request at /csrf-token');
   res.json({ csrfToken: req.csrfToken() });
   logger.info('Responded to GET /csrf-token'); // Log that a response was sent
 });
