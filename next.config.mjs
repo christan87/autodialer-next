@@ -63,6 +63,23 @@ const nextConfig = {
       },
     ];
   },
+  webpack: (config, { isServer }) => {
+    config.module.rules.push({
+      test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+          publicPath: '/_next/static/fonts/',
+          outputPath: `${isServer ? '../' : ''}static/fonts/`,
+          name: '[name].[ext]',
+          esModule: false,
+        },
+      },
+    });
+
+    return config;
+  },
 }
 
 export default nextConfig;

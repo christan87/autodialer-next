@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import Component from '../components/common/login-btn';
 import { useSession } from 'next-auth/react'
 

@@ -5,7 +5,7 @@ import DOMPurify from 'dompurify';
 // Define a HOC called withSanitizedOutput
 function withSanitizedOutput(WrappedComponent) {
   // Return a new component
-  return function(props) {
+  const WithSanitizedOutput = function(props) {
     // Create a new object to hold the sanitized props
     const sanitizedProps = {};
 
@@ -23,6 +23,14 @@ function withSanitizedOutput(WrappedComponent) {
     // Render the wrapped component with the sanitized props
     return <WrappedComponent {...sanitizedProps} />;
   };
+
+  WithSanitizedOutput.displayName = `WithSanitizedOutput(${getDisplayName(WrappedComponent)})`;
+
+  return WithSanitizedOutput;
+}
+
+function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }
 
 // Export the withSanitizedOutput HOC
