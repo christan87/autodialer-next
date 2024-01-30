@@ -1,3 +1,5 @@
+import React from "react";
+
 // utils/withLogging.js
 const logger = require('../../lib/logger'); // require the logger module
 

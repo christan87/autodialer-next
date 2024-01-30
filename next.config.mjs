@@ -52,7 +52,7 @@ const nextConfig = {
               imgSrc: ["'self'", "data:"],
 
               // The 'connectSrc' directive restricts which URLs can be loaded using script interfaces.
-              // Here, it's set to only allow connections from the same origin.
+              // Here, it's set to only allow connections from the same origin and server.
               connectSrc: ["'self'", "http://localhost:4000"],
 
               // The 'fontSrc' directive restricts which URLs can be loaded for font resources.

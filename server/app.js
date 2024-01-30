@@ -67,7 +67,6 @@ app.get('/api/data', (req, res) => {
 
 // Define a route handler for GET requests to 'csrf-token'
 app.get('/csrf-token', (req, res) => {
-  console.log('=====================>Received request at /csrf-token');
   res.json({ csrfToken: req.csrfToken() });
   logger.info('Responded to GET /csrf-token'); // Log that a response was sent
 });
