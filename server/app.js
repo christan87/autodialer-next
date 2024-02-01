@@ -5,7 +5,6 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const http = require('http');
-const socketIo = require('socket.io');
 const mongoose = require('mongoose');
 const csurf = require('csurf');
 const cookieParser = require('cookie-parser');
@@ -13,8 +12,6 @@ const rateLimit = require('express-rate-limit');
 const logger = require('../lib/logger'); // Import the logger
 
 const app = express();
-const server = http.createServer(app);
-const io = socketIo(server);
 const mongoConnectionString = process.env.DB_CONNECTION_STRING;
 
 
@@ -41,16 +38,6 @@ app.use(cors());
 mongoose.connect(`${mongoConnectionString}`, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => logger.info('Connected to MongoDB')) // Log a message on successful connection
   .catch(err => logger.error('Could not connect to MongoDB...', { error: err })); // Log an error message on connection failure
-
-// Listen for a 'connection' event on the socket.io instance
-io.on('connection', (socket) => {
-  logger.info('A user connected'); // Log a message when a user connects
-
-  // Listen for a 'disconnect' event on the socket
-  socket.on('disconnect', () => {
-  logger.info('User disconnected'); // Log a message when a user disconnects
-  });
-});
 
 app.get('/', (req, res) => {
   console.log('=====================>Received request at /');
