@@ -20,6 +20,7 @@ const nextConfig = {
     JWT_SECRET: process.env.JWT_SECRET,
     JWT_SIGNING_PRIVATE_KEY: process.env.JWT_SIGNING_PRIVATE_KEY,
     DEV_SERVER_URL: process.env.DEV_SERVER_URL,
+    WS_URL: process.env.WS_URL,
   },
   // This function is used to set custom HTTP headers for your Next.js application.
   async headers() {
@@ -53,7 +54,7 @@ const nextConfig = {
 
               // The 'connectSrc' directive restricts which URLs can be loaded using script interfaces.
               // Here, it's set to only allow connections from the same origin and server.
-              connectSrc: ["'self'", "http://localhost:4000"],
+              connectSrc: ["'self'", "http://localhost:4000", "wss://6zulgekyd6.execute-api.us-east-1.amazonaws.com"],
 
               // The 'fontSrc' directive restricts which URLs can be loaded for font resources.
               // Here, it's set to allow fonts from the same origin and fonts from 'https://fonts.gstatic.com'.
