@@ -1,1 +1,0 @@
-{"error":{"code":"ECONNREFUSED","hostname":"_mongodb._tcp.cluster0.rwphujv.mongodb.net","syscall":"querySrv"},"level":"error","message":"Could not connect to MongoDB...","service":"user-service"}

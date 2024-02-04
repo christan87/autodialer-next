@@ -54,7 +54,7 @@ const nextConfig = {
 
               // The 'connectSrc' directive restricts which URLs can be loaded using script interfaces.
               // Here, it's set to only allow connections from the same origin and server.
-              connectSrc: ["'self'", "http://localhost:4000", "wss://6zulgekyd6.execute-api.us-east-1.amazonaws.com"],
+              connectSrc: ["'self'", "http://localhost:4000", "wss://jx448jd6wa.execute-api.us-east-1.amazonaws.com/development/"],
 
               // The 'fontSrc' directive restricts which URLs can be loaded for font resources.
               // Here, it's set to allow fonts from the same origin and fonts from 'https://fonts.gstatic.com'.
