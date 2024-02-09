@@ -11,7 +11,7 @@ jest.mock('mongoose', () => ({
 test('connects to MongoDB', async () => {
   // Import the server/app module, which should call mongoose.connect
   // Because mongoose.connect has been mocked, this won't actually establish a MongoDB connection
-  await require('../server/app');
+  await require('../../server/app');
 
   // Check if mongoose.connect has been called with the correct arguments
   // The expect function is used to check if the actual value matches the expected value

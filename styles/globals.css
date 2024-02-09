@@ -1,33 +1,350 @@
+/* 
+  file importedt in src/pages/_app.tsx
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    /* @apply bg-black text-slate-100 */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  p {
+    padding: 0;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
   }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  h2 {
+    margin-top: 0;
+    border-bottom: 1px solid black;
+  }
+  
+  button {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    text-align: left;
+    font-size: 1.25em;
+    color: #777776;
+    display: block;
+  }
+  
+  header {
+    text-align: center;
+  }
+
+  /* Custom Styling For Dialer */
+  
+  main {
+    padding: 3em;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  /* ------------Tailwind Custom Begin------------ */
+
+  :root {
+    --black-gradient: linear-gradient(
+      144.39deg,
+      #ffffff -278.56%,
+      #6d6d6d -78.47%,
+      #11101d 91.61%
+    );
+    --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+  }
+  
+  * {
+    scroll-behavior: smooth;
+  }
+  
+  .text-gradient {
+    background: radial-gradient(
+      64.18% 64.18% at 71.16% 35.69%,
+      #def9fa 0.89%,
+      #bef3f5 17.23%,
+      #9dedf0 42.04%,
+      #7de7eb 55.12%,
+      #5ce1e6 71.54%,
+      #33bbcf 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  
+  .bg-blue-gradient {
+    background: linear-gradient(
+      157.81deg,
+      #def9fa -43.27%,
+      #bef3f5 -21.24%,
+      #9dedf0 12.19%,
+      #7de7eb 29.82%,
+      #5ce1e6 51.94%,
+      #33bbcf 90.29%
+    );
+  }
+  
+  .bg-black-gradient {
+    background: linear-gradient(
+      144.39deg,
+      #ffffff -278.56%,
+      #6d6d6d -78.47%,
+      #11101d 91.61%
+    );
+  }
+  
+  .bg-black-gradient-2 {
+    background: linear-gradient(
+      -168.39deg,
+      #ffffff -278.56%,
+      #6d6d6d -78.47%,
+      #11101d 91.61%
+    );
+  }
+  
+  .bg-gray-gradient {
+    background: linear-gradient(
+      153.47deg,
+      rgba(255, 255, 255, 0) -341.94%,
+      #14101d 95.11%
+    );
+  }
+  
+  .bg-discount-gradient {
+    background: linear-gradient(125.17deg, #272727 0%, #11101d 100%);
+  }
+  
+  .box-shadow {
+    box-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+  }
+  
+  .sidebar {
+    -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+  
+  @-webkit-keyframes slide-top {
+    0% {
+      -webkit-transform: translateY(100px);
+      transform: translateY(100px);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slide-top {
+    0% {
+      -webkit-transform: translateY(100px);
+      transform: translateY(100px);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+  
+  .feature-card:hover {
+    background: var(--black-gradient);
+    box-shadow: var(--card-shadow);
+  }
+  
+  .feedback-container .feedback-card:last-child {
+    margin-right: 0px;
+  }
+  
+  .feedback-card {
+    background: transparent;
+  }
+  
+  .feedback-card:hover {
+    background: var(--black-gradient);
+  }
+  
+  .blue__gradient {
+    background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+    filter: blur(123px);
+  }
+  
+  .pink__gradient {
+    background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
+    filter: blur(900px);
+  }
+  
+  .white__gradient {
+    background: rgba(255, 255, 255, 0.6);
+    filter: blur(750px);
+  }
+
+  /* ------------Tailwind Custom End------------ */
+
+
+  .left-column,
+  .center-column,
+  .right-column {
+    width: 30%;
+    min-width: 16em;
+    margin: 0 1.5em;
+    text-align: center;
+  }
+  
+  /* Left Column */
+  #client-name {
+    text-align: left;
+    margin-bottom: 1em;
+    font-family: "Helvetica Light", Helvetica, sans-serif;
+    font-size: 1.25em;
+    color: #777776;
+  }
+  
+  select {
+    width: 300px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  
+  /* Center Column */
+  input {
+    font-family: Helvetica-LightOblique, Helvetica, sans-serif;
+    font-style: oblique;
+    font-size: 1em;
+    width: 100%;
+    height: 2.5em;
+    padding: 0;
+    display: block;
+    margin: 10px 0;
+  }
+  
+  div#volume-indicators {
+    padding: 10px;
+    margin-top: 20px;
+    width: 500px;
+    text-align: left;
+  }
+  
+  div#volume-indicators > div {
+    display: block;
+    height: 20px;
+    width: 0;
+  }
+  
+  /* Right Column */
+  .right-column {
+    padding: 0 1.5em;
+  }
+  
+  #log {
+    text-align: left;
+    border: 1px solid #686865;
+    padding: 10px;
+    height: 9.5em;
+    overflow-y: scroll;
+  }
+  
+  .log-entry {
+    color: #686865;
+    font-family: "Share Tech Mono", "Courier New", Courier, fixed-width;
+    font-size: 1.25em;
+    line-height: 1.25em;
+    margin-left: 1em;
+    text-indent: -1.25em;
+    width: 90%;
+  }
+  
+  /* Other Styles */
+  .hide {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+  }
+  
+  button:disabled {
+    cursor: not-allowed;
+  }
+  
+  /* Navbar */
+  .nav-item {
+    margin: 0 10px;
+  }
+
+  .dropdown{
+    position: relative;
+  }
+
+  .dropdown-btn::after {
+    /* content: '▼'; /* Downward-facing arrow */
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+  }
+
+.dropdown-menu {
+  display: none;
+  position:absolute;
+  background-color: #333;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  left: 65%;
+  top: 100%;
+  border: 1px solid #555;
+  border-top: none;
+}
+
+.dropdown.visible .dropdown-btn::after {
+  transform: rotate(180deg); /* Upward-facing arrow */
+}
+
+.dropdown.visible .dropdown-menu {
+  display: block;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+  display: none; /* Initially hidden */
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+/* Display mobile menu button on smaller screens */
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: block;
+  }
+  
+  .nav-list {
+    display: none; /* Hide the desktop menu */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Adjust this value as needed */
+    left: 0;
+    background-color: #333;
+    width: 100%;
+  }
+
+  .nav-list.active {
+    display: flex; /* Show the mobile menu when active */
+  }
+
+  .nav-item, .dropdown {
+    margin: 10px 0; /* Add spacing between mobile menu items */
+  }
+}
+
+/* Drag and Drope File Uploader */
+.active-drag{
+  border: 2px solid #fff;
 }

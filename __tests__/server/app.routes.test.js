@@ -1,7 +1,7 @@
 // server.routes.test.js
 const request = require('supertest');
 const mongoose = require('mongoose'); // Import mongoose
-const { app, db } = require('../server/app'); // Import the mongoose connection and app
+const { app, db } = require('../../server/app'); // Import the mongoose connection and app
 
 // Before all tests...
 beforeAll(async () => {

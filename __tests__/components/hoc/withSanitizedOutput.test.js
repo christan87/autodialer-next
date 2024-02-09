@@ -6,7 +6,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom'; // Add this line
-import withSanitizedOutput from '../components/hoc/withSanitizedOutput';
+import withSanitizedOutput from '../../../components/hoc/withSanitizedOutput';
 
 // Create a mock component to wrap
 const MockComponent = ({ output }) => <div>{output}</div>;

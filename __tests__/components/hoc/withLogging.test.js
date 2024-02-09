@@ -1,9 +1,9 @@
 // __tests__/withLogging.test.js
-const withLogging = require('../components/hoc/withLogging'); // Import the function to be tested
-const logger = require('../lib/logger'); // Import the logger module
+const withLogging = require('../../../components/hoc/withLogging'); // Import the function to be tested
+const logger = require('../../../lib/logger'); // Import the logger module
 
 // Mock the logger module
-jest.mock('../lib/logger', () => ({
+jest.mock('../../../lib/logger', () => ({
   info: jest.fn(), // Mock the info method
 }));
 

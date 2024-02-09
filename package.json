@@ -11,6 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@twilio/voice-sdk": "^2.2.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "csurf": "^1.11.0",
@@ -31,13 +32,14 @@
     "serverless": "^3.38.0",
     "serverless-http": "^3.2.0",
     "serverless-offline": "^13.3.3",
+    "twilio": "^3.64.0",
     "winston": "^3.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
-    "@testing-library/jest-dom": "^6.3.0",
+    "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.1.2",
     "autoprefixer": "^10.0.1",
     "babel-jest": "^29.7.0",

@@ -9,7 +9,7 @@ const { render, fireEvent, waitFor } = require('@testing-library/react');
 
 
 // Import the custom hook that we want to test
-import useSanitizedInput from '../hooks/useSanitizedInput';
+import useSanitizedInput from '../../hooks/useSanitizedInput';
 
 // Define a test component that uses the custom hook
 // This component is a simple input field that uses the useSanitizedInput hook for its value and onChange handler
